@@ -3,13 +3,13 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  const { image, setImage } = useState('');
+  const [image, setImage] = useState('');
 
   const handleChange = () => {
     axios
       .get('https://api.generated.photos/api/v1/faces?api_key=iGKtGOOWlTm-DUpR2bXh_w')
       .then(res => {
-        const uri = res.data.faces[0].urls[4][512]
+        const uri = res.data.faces[0].urls[4][512];
         uri && setImage(uri);
       })
       .catch(err => {
